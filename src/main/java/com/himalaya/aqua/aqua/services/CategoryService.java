@@ -5,14 +5,16 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.himalaya.aqua.aqua.core.entity.Category;
+import com.himalaya.aqua.aqua.core.exception.HimalayaAquaException;
 
 @Service
 public interface CategoryService {
 
-	List<Category> find();
+	void delete(Long id) throws HimalayaAquaException;
 
-	Category findById(Long categoryId);
+	List<Category> find() throws HimalayaAquaException;
 
-	Long save(Category category);
+	Category findById(Long id) throws HimalayaAquaException;
 
+	Long save(Category category) throws HimalayaAquaException;
 }
