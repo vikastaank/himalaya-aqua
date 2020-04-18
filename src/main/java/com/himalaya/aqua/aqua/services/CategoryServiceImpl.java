@@ -7,22 +7,22 @@ import org.springframework.stereotype.Service;
 
 import com.himalaya.aqua.aqua.core.entity.Category;
 import com.himalaya.aqua.aqua.core.exception.HimalayaAquaException;
-import com.himalaya.aqua.aqua.dao.CategoryDao;
+import com.himalaya.aqua.aqua.repository.CategoryRepository;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
 
 	@Autowired
-	private CategoryDao categoryDao;
+	private CategoryRepository catrgoryRepository;
 
 	@Override
 	public void delete(Long id) throws HimalayaAquaException {
-		categoryDao.deleteById(id);
+		catrgoryRepository.deleteById(id);
 	}
 
 	@Override
 	public List<Category> find() throws HimalayaAquaException {
-		List<Category> list = categoryDao.findAll();
+		List<Category> list = catrgoryRepository.findAll();
 		if (list == null || list.size() < 1) {
 			throw new HimalayaAquaException("The specified entity not found");
 		}
@@ -31,7 +31,7 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public Category findById(Long id) throws HimalayaAquaException {
-		Category category = categoryDao.findById(id).orElse(null);
+		Category category = catrgoryRepository.findById(id).orElse(null);
 		if (category == null) {
 			throw new HimalayaAquaException("The specified entity not found");
 		}
@@ -40,6 +40,6 @@ public class CategoryServiceImpl implements CategoryService {
 
 	@Override
 	public Long save(Category category) throws HimalayaAquaException {
-		return categoryDao.save(category).getId();
+		return catrgoryRepository.save(category).getId();
 	}
 }

@@ -1,4 +1,4 @@
-package com.himalaya.aqua.aqua.web;
+package com.himalaya.aqua.aqua.web.ws;
 
 import java.util.List;
 
@@ -18,7 +18,7 @@ import com.himalaya.aqua.aqua.core.exception.HimalayaAquaException;
 import com.himalaya.aqua.aqua.services.SubCategoryService;
 
 @RestController
-@RequestMapping("/subcategories")
+@RequestMapping("/api/subcategories")
 public class SubCategoryWS {
 
 	public static final String RESPONSE_FAILURE = "FAILURE";
